@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace MarsFramework
@@ -25,12 +26,11 @@ namespace MarsFramework
                 //Profile obj = new Profile();
                 //obj.EditProfile();
 
-                ShareSkills_Credit obj1 = new ShareSkills_Credit();
+                ShareSkills obj1 = new ShareSkills();
                 obj1.Skillslisting();
-               
+                Thread.Sleep(3000);
 
-                ShareSkills_SkillsExchange obj2 = new ShareSkills_SkillsExchange();
-                obj2.Skillslisting_withSkillsExchange();
+                
 
 
                 DeletingShareskills_credit obj3 = new DeletingShareskills_credit();

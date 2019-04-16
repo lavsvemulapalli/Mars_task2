@@ -122,7 +122,7 @@
     <Compile Include="Global\Base.cs" />
     <Compile Include="Global\GlobalDefinitions.cs" />
     <Compile Include="Pages\DeletingShareskills_credit.cs" />
-    <Compile Include="Pages\ShareSkills_Credit.cs" />
+    <Compile Include="Pages\ShareSkills.cs" />
     <Compile Include="Pages\ShareSkills_SkillsExchange.cs" />
     <Compile Include="Pages\SignIn.cs" />
     <Compile Include="Pages\SignUp.cs" />
