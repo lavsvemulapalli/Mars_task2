@@ -44,11 +44,21 @@ namespace MarsFramework.Pages
             yesbtn.Click();
             Thread.Sleep(3000);
             //verification
-            Assert.AreEqual("Test Engineer has been deleted", verification_deletedmessage.Text);
-            Thread.Sleep(2000);
+           // Assert.AreEqual(GlobalDefinitions.ExcelLib.ReadData(2, "verification_delete"), verification_deletedmessage.Text);
+
+            if ((GlobalDefinitions.ExcelLib.ReadData(2, "verification_delete").Equals(verification_deletedmessage.Text)))
+            {
+                Base.test.Log(LogStatus.Info, "deleted managelisting sucessfully");
+                Thread.Sleep(2000);
+            }
+
+            else
+            {
+                Base.test.Log(LogStatus.Info, "error in deleting the managelisting");
+            }
 
 
-            Base.test.Log(LogStatus.Info, "deleted Manage listing  with skillstrade as credit successfully");
+           
 
         }
 

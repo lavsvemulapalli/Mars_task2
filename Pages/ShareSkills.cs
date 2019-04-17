@@ -144,12 +144,17 @@ namespace MarsFramework.Pages
 
                 Console.WriteLine(ser_name);
 
-                if (ser_name.Equals(GlobalDefinitions.ExcelLib.ReadData(2, "ServiceType")))
+                if (ser_name.Equals(GlobalDefinitions.ExcelLib.ReadData(3, "ServiceType")))
                 {
                     service.ElementAt(i).Click();
                     Base.test.Log(LogStatus.Info, "Select the ServiceType");
+                    
                     break;
+                   
                 }
+                
+
+
             }
             Thread.Sleep(2000);
             //entering location type
@@ -243,7 +248,7 @@ namespace MarsFramework.Pages
 
             IList<IWebElement> trade = GlobalDefinitions.driver.FindElements(By.XPath("//input[@name='skillTrades']"));
 
-            int count4 = service.Count;
+            int count4 = trade.Count;
 
             for (int i = 0; i < count4; i++)
             {
@@ -342,15 +347,39 @@ namespace MarsFramework.Pages
 
             Managelistingbtn.Click();
             Thread.Sleep(2000);
-            Assert.AreEqual("Test Engineer", verfication.Text);
-            Thread.Sleep(2000);
+           // Assert.AreEqual(GlobalDefinitions.ExcelLib.ReadData(2, "Verification"), verfication.Text);
+            
 
+            //if((GlobalDefinitions.ExcelLib.ReadData(2, "Verification").Equals(verfication.Text)))
+            //{
+            //    Base.test.Log(LogStatus.Info, "Added share skills  with skillstrade as credit successfully");
+            //    Thread.Sleep(2000);
+            //}
 
+            //else
+            //{
+            //    Base.test.Log(LogStatus.Info, "error in adding in shareskills");
+            //}
 
-            Base.test.Log(LogStatus.Info, "Added share skills  with skillstrade as credit successfully");
-            Thread.Sleep(2000);
+            IList<IWebElement> verify = GlobalDefinitions.driver.FindElements(By.XPath("//*[@id='listing-management-section']/div[2]/div[1]/table/tbody/tr"));
 
+            int count6 = verify.Count;
+            for (int i = 0; i < count6; i++)
+            {
+                int q = i + 1;
+                String before_xpath = "//*[@id='listing-management-section']/div[2]/div[1]/table/tbody/tr[";
+                String after_xpath = "]/td[3]";
+                var verify_name = GlobalDefinitions.driver.FindElement(By.XPath(before_xpath + q + after_xpath)).Text;
 
+                Console.WriteLine(verify_name);
+
+                if (verify_name.Equals(GlobalDefinitions.ExcelLib.ReadData(2, "Verification")))
+                {
+                    
+                    Base.test.Log(LogStatus.Info, "Added share skills  with skillstrade as credit successfully");
+                    break;
+                }
+            }
 
 
 
