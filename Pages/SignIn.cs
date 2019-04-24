@@ -62,14 +62,14 @@ namespace MarsFramework.Pages
             LoginBtn.Click();
             Thread.Sleep(1500);
 
-            string text = Global.GlobalDefinitions.driver.FindElement(By.XPath("//a[text()='Mars Logo']")).Text;
+            //string text = Global.GlobalDefinitions.driver.FindElement(By.XPath("//a[text()='Mars Logo']")).Text;
 
-            if (text == "MarsLogo")
-            {
-                Global.Base.test.Log(RelevantCodes.ExtentReports.LogStatus.Pass, "Login Successful");
-            }
-            else
-                Global.Base.test.Log(RelevantCodes.ExtentReports.LogStatus.Fail, "Login Unsuccessful");
+            //if (text == "MarsLogo")
+            //{
+            //    Global.Base.test.Log(RelevantCodes.ExtentReports.LogStatus.Pass, "Login Successful");
+            //}
+            //else
+            //    Global.Base.test.Log(RelevantCodes.ExtentReports.LogStatus.Fail, "Login Unsuccessful");
 
         }
     }
