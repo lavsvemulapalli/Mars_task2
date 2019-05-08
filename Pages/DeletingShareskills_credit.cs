@@ -21,12 +21,8 @@ namespace MarsFramework.Pages
         }
 
         [FindsBy(How = How.XPath, Using = "//a[text()='Manage Listings']")] public IWebElement Managelistingbtn;
-
-        [FindsBy(How = How.XPath, Using = "//td[text()='Off']//following::i[3]")] public IWebElement removeIcon;
-
         [FindsBy(How = How.XPath, Using = "//button[text()='Yes']")] public IWebElement yesbtn;
         [FindsBy(How = How.CssSelector, Using = ".ns-box-inner")] public IWebElement verification_deletedmessage;
-        [FindsBy(How = How.XPath, Using = "//button[@class='ui button otherPage']//following::button")] public IWebElement nexticon;
         [FindsBy(How = How.XPath, Using = "//button[text()='>']")] public IWebElement nextpagebutton;
 
 
@@ -36,16 +32,21 @@ namespace MarsFramework.Pages
             {
                 Thread.Sleep(2000);
 
-
+    // clicking on managelisting tab
                 Managelistingbtn.Click();
                 Thread.Sleep(2000);
+                // number of rows in a table
                 IList<IWebElement> managelisting = GlobalDefinitions.driver.FindElements(By.XPath("//*[@id='listing-management-section']/div[2]/div[1]/table/tbody/tr"));
                 int count = managelisting.Count;
+
+                // number of pages in mangelisting
                 IList<IWebElement> allpages = GlobalDefinitions.driver.FindElements(By.XPath("//div[@class='ui buttons semantic-ui-react-button-pagination']//button"));
 
                 Console.WriteLine("Total pages:" + allpages.Count);
+                //looping for pages
                 for (int j = 0; j <= (allpages.Count); j++)
                 {
+                    //looping for rows
                     for (int i = 0; i < count; i++)
                     {
                         int k = i + 1;
@@ -67,6 +68,7 @@ namespace MarsFramework.Pages
                         }
 
                     }
+                    //click on nextpagebutton
                     if (nextpagebutton.Enabled)
                     {
                         nextpagebutton.Click();
