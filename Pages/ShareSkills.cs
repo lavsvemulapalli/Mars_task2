@@ -56,7 +56,7 @@ namespace MarsFramework.Pages
             shareskillsbtn.Click();
             Thread.Sleep(5000);
             //entering title
-            skillstitle.SendKeys(GlobalDefinitions.ExcelLib.ReadData(3, "Title"));
+            skillstitle.SendKeys(GlobalDefinitions.ExcelLib.ReadData(5, "Title"));
             Base.test.Log(LogStatus.Info, "enter the title details");
             //entering description
             skillsdescription.SendKeys(GlobalDefinitions.ExcelLib.ReadData(3, "Description"));

@@ -36,6 +36,11 @@ namespace MarsFramework
                 DeletingShareskills_credit obj3 = new DeletingShareskills_credit();
                 obj3.Deleting_managinglist();
 
+                //Deleting obj4 = new Deleting();
+                //obj4.Deleting_managinglist();
+
+
+
             }
         }
     }
